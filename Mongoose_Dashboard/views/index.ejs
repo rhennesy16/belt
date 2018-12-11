@@ -1,0 +1,10 @@
+<body>
+    <h1>Here are the Animals!</h1>
+    <% for (var x in arr) { %>
+        <p>Animal's name:<%= arr[x].name %></p>
+        <p>Favorite color:<%= arr[x].favorite_color %></p>
+        <a href="animals/<%= arr[x]._id%>">check this out</a>
+        <hr>
+    <% } %>
+    <a href="/animals/new"> Add another Animal</a>
+</body>

@@ -1,0 +1,6 @@
+<h2>Here are all the quotes:</h2>
+<% for (var x in quotes) { %>
+    <h3>"<%= quotes[x].content %>"</h3>
+    <h4> -<%= quotes[x].name %> at <%= quotes[x].date %></h4>
+    <hr>
+    <% } %>

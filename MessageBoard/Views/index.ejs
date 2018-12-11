@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    .container{
+    width: 1000px;
+    padding: 25px 50px 50px 50px;
+    box-sizing: content-box;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: inline-block;
+	}
+    .header{
+        height: 5%;
+        width: 100%;
+        background-color: lightblue;
+        display: inline-block;
+        border: 2px solid lightblue;
+        border-radius: 9px;
+        vertical-align: top;
+    }
+    .header h3{
+        margin-top: 20px;
+    }
+    .header p{
+        display: inline-block;
+        margin-left: 750px;
+        margin-bottom: 20px;
+    }
+    .header a{
+        margin-left: 100px;
+    }
+    .mbody{
+        text-align: center;
+    }
+	</style>
+</head>
+<body>
+        <% if(messages.registration) { %>
+             <% for (var x of messages.registration) { %>
+              <h3><%= x %></h3>
+             <% } %>
+         <% } %>
+    <div class="container">
+        <div class="header">
+            <h3>CodingDojo Wall</h3>
+            <p>Welcome</p>
+        </div>
+        <div class="mbody">
+            <form action="/message" method="POST">
+                <label><h2>Post a Message</h2></label><br>
+                <label><h4>Enter your name: </h4></label>
+                <input type="text" name="name"><br>
+                <label><h4>Enter a message: </h4></label>
+                <input type="text" name="content"><br>
+                <input type="submit" name="pmessage" value="Post a message">
+            </form>
+                
+        <% for (let data of Message) { %>
+            <p><h3><%=data.name%></h3></p>
+            <p><h2><%=data.content%></h2></p>
+            <% for (let comment of data.comments) { %>
+                <p><h4><%=comment.name%></h4></p>
+                <p><%=comment.content%></p>
+            <% } %>
+            <form action="/comment/<%=data._id%>" method="POST">
+                <label><h2>Post a comment</h2></label><br>
+                <label><h4>Enter your name: </h4></label>
+                <input type="text" name="name"><br>
+                <label><h4>Enter a comment: </h4></label>
+                <input type="text" name="content"><br>
+                <input type="submit" name="pcomment" value="Post a comment">
+            </form>
+            <hr>
+            <% } %>
+        
+        </div>
+    </div>
+</body>
+</html>

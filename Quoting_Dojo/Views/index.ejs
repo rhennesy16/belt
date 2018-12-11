@@ -1,0 +1,18 @@
+<h1>HUZZAH QUOTES</h1>
+    
+    <!-- <%- JSON.stringify(messages) %>  -->
+    <% if(messages.registration) { %>
+        <% for (var x of messages.registration) { %>
+            <h3><%= x %></h3>
+        <% } %>
+    <% } %>
+<form action='/quotes' method='post'>
+    <p>Name:</p>
+    <input class='name' type='text' name='name'>
+    
+    <p>Quote:</p>
+    <input class='content' type='text' name='content'>
+    
+    <button type="submit"  value='Submit'>Submit</button>
+
+</form>
